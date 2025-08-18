@@ -16,3 +16,16 @@ reference: {reference}
 Score from 1-10 and explain briefly
 """
 eval_template = PromptTemplate.from_template(template=eval_prompt)
+router_prompt = """
+Your are the interview flow router.
+Given the conversation so far, decide what to do next:
+- ask_question
+- evaluate_answer
+- follow_up
+return only one option
+
+conversation so far: {history}
+
+"""
+router_template = PromptTemplate.from_template(template=router_prompt)
+
