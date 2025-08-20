@@ -9,8 +9,6 @@ def _format_docs(docs, max_chars=4000):
     return text[:max_chars]
 
 def build_question_chain(retriever):
-    
-
     chain = {
         "field": itemgetter("field"),
         "context": itemgetter("field") | retriever | RunnableLambda(_format_docs),
