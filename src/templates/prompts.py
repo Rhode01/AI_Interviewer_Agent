@@ -29,15 +29,15 @@ conversation so far: {input}
 
 """
 router_template = PromptTemplate.from_template(template=router_prompt)
-
-gen_quest_prompt_template = ChatPromptTemplate.from_template(
-        """
-You are a technical interviewer for the field: {{field}}.
+gen_question_prompt ="""
+You are a technical interviewer for the field: {field}.
 Use ONLY the company knowledge base context below to craft ONE clear, concise interview question.
 The question must be answerable from the context (no outside knowledge). Prefer high-signal, role-relevant topics.
 
-
+[Knownledge base]
+ {context}
 
 Return just the question text. No preface, no bullets.
         """.strip()
-    )
+
+gen_quest_prompt_template = PromptTemplate.from_template(gen_question_prompt)
