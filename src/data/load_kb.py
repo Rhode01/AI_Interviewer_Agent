@@ -27,8 +27,6 @@ def load_kb():
     )
     page_content = [doc.page_content for doc in docs]
     chuck_docs = chucker.split_documents(docs)
-    print(len(chuck_docs))
-    print(chuck_docs)
     vectore_store =  FAISS.from_documents(chuck_docs,embeddings)
     retriever = vectore_store.as_retriever()
     return retriever
