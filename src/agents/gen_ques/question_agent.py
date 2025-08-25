@@ -17,7 +17,3 @@ def build_question_chain(retriever):
     } | gen_quest_prompt_template | llm | StrOutputParser()
 
     return chain
-
-
-question_agent_exec = create_react_agent(model=llm,prompt=gen_quest_prompt_template, tools= [])
-    
