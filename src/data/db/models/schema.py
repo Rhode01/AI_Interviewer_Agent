@@ -3,7 +3,7 @@ from pgvector.sqlalchemy import Vector
 from src.data.db.base import Base
 
 class DocumentEmbedding(Base):
-    __tablename__ = "document_embeddings"
+    __tablename__ = "document_Embeddings"
     __table_args__ = {"extend_existing": True}
     id = Column(Integer, primary_key=True, index=True)
     label =Column(Text, nullable=False)
